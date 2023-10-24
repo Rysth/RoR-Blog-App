@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_24_174429) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_24_200657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "posts", force: :cascade do |t|
-    t.bigint "author_id", null: false
+  create_table "posts_enhanceds", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "title"
     t.string "text"
     t.integer "comments_counter"
     t.integer "likes_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["user_id"], name: "index_posts_enhanceds_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,5 +34,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_24_174429) do
     t.string "bio"
   end
 
-  add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "posts_enhanceds", "users"
 end
