@@ -19,7 +19,7 @@ end
 
   UPDATE | Queries to update a Post from a specific id.
 
-    Post.find(first_post.id)
+    Post.find(first_post.id).update(title: 'Videogames')
 
   DELETE | Queries to delete a Post from a specific id.
 
