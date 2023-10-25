@@ -103,6 +103,7 @@ To run the project, execute the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Implement a user interface with React.**
+- [ ] **Make a simple console interface to handle queries.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,15 +113,13 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thanks to my family members for supporting me during Microverse, and their team.
 
