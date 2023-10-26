@@ -8,7 +8,7 @@ one:
 
 two:
   author_id: 1
-  title: 'Second Post'
+  title: ''
   text: 'Content of the second post goes here.'
   comments_counter: 3
   likes_counter: 7
