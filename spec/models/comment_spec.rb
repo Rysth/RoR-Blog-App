@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  fixtures :comments, :users, :posts
+  fixtures :users, :posts
 
   it "updates comments_counter after a new comment is created" do
     comment = Comment.create(user: users(:one), post: posts(:one), text: "New comment")
