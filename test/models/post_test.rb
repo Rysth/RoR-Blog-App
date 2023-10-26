@@ -22,4 +22,14 @@ class PostTest < ActiveSupport::TestCase
     assert_not post.comments_counter >= 0
   end
 
+  test "likes_counter should be greater than or equal to 0" do
+    post = posts(:one)
+    assert post.likes_counter >= 0
+  end
+
+  test "likes_counter should not be greater than or equal to 0" do
+    post = posts(:two)
+    assert_not post.likes_counter >= 0
+  end
+
 end
