@@ -11,6 +11,8 @@
     # Validation: CommentsCounter must be an integer greater than or equal to zero.
     validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 } 
 
+    # Validation: LikesCounter must be an integer greater than or equal to zero.
+    validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 } 
 
     def recent_comments
       comments.order(created_at: :desc).limit(5)
