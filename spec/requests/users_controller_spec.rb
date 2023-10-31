@@ -1,15 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe 'UsersControllers', type: :request do
+RSpec.describe UsersController, type: :request do
   describe 'GET /users' do
-    it 'return correct status' do
+    it 'returns correct status' do
       get '/users'
       expect(response.status).to eq(200)
     end
-    it 'return the body correctly' do
+
+    it 'returns the body correctly' do
       get '/users'
       expect(response.body).not_to be_nil
     end
+
     it 'contains the correct placeholder text' do
       get '/users'
       expect(response.body).to include('Here is the list of Users.')
@@ -17,16 +19,22 @@ RSpec.describe 'UsersControllers', type: :request do
   end
 
   describe 'GET /users/:id' do
-    it 'return correct status' do
-      get '/users/1'
+    before do
+      @user = User.create(name: 'Test User', bio: 'Hello World, John!')
+    end
+
+    it 'returns correct status' do
+      get "/users/#{@user.id}"
       expect(response.status).to eq(200)
     end
-    it 'return the body correctly' do
-      get '/users/1'
+
+    it 'returns the body correctly' do
+      get "/users/#{@user.id}"
       expect(response.body).not_to be_nil
     end
+
     it 'contains the correct placeholder text' do
-      get '/users/1'
+      get "/users/#{@user.id}"
       expect(response.body).to include('Here is the User information.')
     end
   end

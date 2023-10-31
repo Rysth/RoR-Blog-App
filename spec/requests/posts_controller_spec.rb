@@ -30,4 +30,11 @@ RSpec.describe 'PostsControllers', type: :request do
       expect(response.body).to include('Here is the Post information from an specific User.')
     end
   end
+
+  describe 'METHOD :index' do
+    it 'return all the posts from a user' do
+      get :index
+      expect(response).not_to be_nil
+    end
+  end
 end
