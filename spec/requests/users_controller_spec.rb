@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :request do
 
     it 'returns the body correctly' do
       get '/users'
-      expect(response.body).not_to be_nil
+      expect(response).to render_template(:index)
     end
 
     it 'contains the correct placeholder text' do
@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :request do
 
     it 'returns the body correctly' do
       get "/users/#{@user.id}"
-      expect(response.body).not_to be_nil
+      expect(response).to render_template(:show)
     end
 
     it 'contains the correct placeholder text' do

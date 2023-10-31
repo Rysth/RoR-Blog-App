@@ -13,7 +13,7 @@ RSpec.describe 'PostsControllers', type: :request do
 
     it 'return the body correctly' do
       get "/users/#{@user.id}/posts"
-      expect(response.body).not_to be_nil
+      expect(response).to render_template(:index)
     end
 
     it 'contains the correct placeholder text' do
@@ -35,7 +35,7 @@ RSpec.describe 'PostsControllers', type: :request do
 
     it 'return the body correctly' do
       get "/users/#{@user.id}/posts/#{@post.id}"
-      expect(response.body).not_to be_nil
+      expect(response).to render_template(:show)
     end
 
     it 'contains the correct placeholder text' do
