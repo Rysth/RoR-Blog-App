@@ -5,7 +5,7 @@ RSpec.describe PostsController, type: :controller do
     before do
       @user = User.create(name: 'Test User', bio: 'Hello World, John!')
     end
-    
+
     it 'renders the index template' do
       get :index, params: { user_id: @user.id }
       expect(response).to render_template('index')
