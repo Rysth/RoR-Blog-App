@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
-
-  <body>
-    Here is the list of Users.
-  </body>
-</html>
+<ul class="p-0 list-none grid gap-5 w-full">
+  <% @users.each do |user| %>
+    <li class="flex flex-col md:flex-row gap-5 ">
+      <picture class="bg-black w-40 h-40 md:h-40 mx-auto">
+        <img src=<%= user.photo %> alt="" class="w-full md:w-40 h-full object-cover">
+      </picture>
+      <div class="flex-grow border p-2 md:p-4 text-center md:text-left flex flex-col justify-between">
+        <h3 class="text-3xl md:text-6xl lg:text-7xl font-bold"><%= user.name %></h3>
+        <p class="md:text-right text-xs md:text-base lg:text-xl md:mt-auto">Number of posts: <%= user.posts_counter %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
