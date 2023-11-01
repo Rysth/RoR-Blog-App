@@ -1,4 +1,4 @@
- <div class="flex flex-col gap-5 md:flex-row ">
+<div class="flex flex-col gap-5 md:flex-row ">
     <picture class="w-40 h-40 mx-auto md:h-40">
       <img src="<%= @user.photo %>" alt="" class="object-cover w-full h-full">
     </picture>
@@ -14,7 +14,7 @@
 <div class="grid gap-10 mt-10">
   <ul class="grid w-full gap-5 p-0 list-none">
     <% @posts.each do |post| %>
-      <li class="flex flex-col justify-between flex-grow p-2 text-center border md:text-left md:p-4">
+      <li class="flex flex-col justify-between flex-grow p-2 text-center border md:text-left md:p-4 ">
         <p class="text-xl font-bold md:text-2xl">Post #<%= post.id %></p>
         <p class="mt-3 text-sm md:text-base"><%= post.text %></p>
         <p class="text-xs md:text-right md:text-base ">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
@@ -22,6 +22,6 @@
     <% end %>
   </ul>
   <div class="flex justify-center">
-    <button class="p-2 px-4 text-center border md:hover:shadow-2xl md:hover:transition md:hover:scale-105">See all posts</button>
+    <a href="/users/<%= @user.id %>/posts" class="p-2 px-4 text-center border md:hover:shadow-2xl md:hover:transition md:hover:scale-105">See all posts</a>
   </div>
 </div>
