@@ -1,0 +1,12 @@
+<section class="">
+  <h2 class="text-3xl font-bold md:text-5xl">New Post</h2>
+  <%= form_with model: @post, url: user_posts_path(@user) do |form| %>
+    <fieldset>
+      <%= form.text_field :title  %>
+      <%= form.text_area :text %>
+    </fieldset>
+    <fieldset>
+      <%= form.submit "Submit" %>
+    </fieldset>
+  <% end %>
+</section>

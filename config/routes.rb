@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # Routes: UsersController
   resources :users, only: [:index, :show] do
    # Routes: PostsController
-    resources :posts, only: [:index, :show]
+   resources :posts, only: [:index, :show, :new, :create]
   end
 end
