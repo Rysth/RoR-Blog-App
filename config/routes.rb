@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # Routes: UsersController
   resources :users, only: [:index, :show] do
    # Routes: PostsController
-    resources :posts, only: [:index, :show]
+   resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: [:new, :create]
+      resources :likes, only: [:new, :create]
+   end
   end
 end
