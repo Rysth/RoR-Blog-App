@@ -5,7 +5,7 @@
       <%= @sum %>
       <a class="flex flex-col gap-5 md:flex-row md:hover:scale-105 md:transition md:hover:shadow-2xl" href="/users/<%= user.id %>">
         <picture class="w-40 h-40 mx-auto md:h-40">
-          <img src="<%= user.photo %>" alt="" class="object-cover w-full h-full">
+          <img src="<%= user.photo %>" alt="" class="object-cover w-full h-full" id="user-photo">
         </picture>
         <div class="flex flex-col justify-between flex-grow p-2 text-center border md:p-6 md:text-left">
           <h3 class="text-3xl font-bold md:text-5xl"><%= user.name %></h3>

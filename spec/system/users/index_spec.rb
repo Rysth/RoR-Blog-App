@@ -13,7 +13,7 @@ RSpec.describe "Users", type: :system do
 
   it 'Should render user photo' do
     visit root_path
-    expect(page.html).to include('userPhoto')
+    expect(page.html).to include('user-photo')
   end
 
   it 'Should render number of posts' do
