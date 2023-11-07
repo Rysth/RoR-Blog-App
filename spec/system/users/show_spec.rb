@@ -4,11 +4,11 @@ RSpec.describe 'UsersShows', type: :system do
   before do
     driven_by(:rack_test)
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
-    @post_1 = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
+    @post_one = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
                           likes_counter: 0)
-    @post_2 = Post.create(author_id: @user.id, title: 'Hello', text: 'Testing specs', comments_counter: 0,
+    @post_two = Post.create(author_id: @user.id, title: 'Hello', text: 'Testing specs', comments_counter: 0,
                           likes_counter: 0)
-    @post_3 = Post.create(author_id: @user.id, title: 'World', text: 'Testing specs', comments_counter: 0,
+    @post_three = Post.create(author_id: @user.id, title: 'World', text: 'Testing specs', comments_counter: 0,
                           likes_counter: 0)
     visit user_path(id: @user.id)
   end
@@ -39,7 +39,7 @@ RSpec.describe 'UsersShows', type: :system do
 
   it 'Should redirect to all post show page' do
     click_link('post-Specing')
-    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post_1.id))
+    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post_one.id))
   end
   it 'redirects to the user\'s posts page when the button See all posts is clicked' do
     click_link('See all posts')
