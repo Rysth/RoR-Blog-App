@@ -16,7 +16,7 @@
   </article>
   <div class="border">
     <ul class="grid w-full p-0 list-none">
-      <% @post.comments.includes(:user, :post).each do |comment| %>
+      <% @post.comments.includes(:user).each do |comment| %>
         <li class="p-2 md:px-4 md:py-1">
           <p class="text-sm md:text-base"><span class="font-bold"><%= comment.user.name %>:</span> <%= comment.text %></p>
         </li>
