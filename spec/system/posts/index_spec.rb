@@ -11,7 +11,7 @@ RSpec.describe 'PostsShow', type: :system do
       @posts << post
     end
     @comments = []
-    5.times do |index|
+    5.times do |_index|
       comment = Comment.create(user: @user, post: @posts[1], text: 'Welcome World!')
       @comments << comment
     end
