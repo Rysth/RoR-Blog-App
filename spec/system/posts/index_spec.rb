@@ -1,11 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "PostsShow", type: :system do
+RSpec.describe 'PostsShow', type: :system do
   before do
     driven_by(:rack_test)
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
-    @post = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0, likes_counter: 0)
-    @comment = Comment.create(user: @user, post: @post, text: "Welcome World!")
+    @post = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
+                        likes_counter: 0)
+    @comment = Comment.create(user: @user, post: @post, text: 'Welcome World!')
     @like = Like.create(user: @user, post: @post)
     visit user_posts_path(user_id: @user.id)
   end
@@ -42,7 +43,7 @@ RSpec.describe "PostsShow", type: :system do
     expect(page).to have_content('Likes: 1')
   end
 
-  it 'Should render a section for pagination'  do
+  it 'Should render a section for pagination' do
     expect(page).to have_selector('#pagination')
   end
 

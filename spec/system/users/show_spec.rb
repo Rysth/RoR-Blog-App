@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "UsersShows", type: :system do
+RSpec.describe 'UsersShows', type: :system do
   before do
     driven_by(:rack_test)
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
-    @post = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0, likes_counter: 0)
+    @post = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
+                        likes_counter: 0)
     visit user_path(id: @user.id)
   end
 
@@ -31,7 +32,7 @@ RSpec.describe "UsersShows", type: :system do
   it 'Should render see all posts button' do
     expect(page).to have_link('See all posts')
   end
-  
+
   it 'Should redirect to all post show page' do
     click_link('post-Specing')
     expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post.id))
