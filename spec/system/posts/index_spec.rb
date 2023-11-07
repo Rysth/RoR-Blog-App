@@ -6,7 +6,8 @@ RSpec.describe 'PostsShow', type: :system do
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
     @posts = []
     5.times do |index|
-      post = Post.create(author_id: @user.id, title: "Title_#{index}", text: 'Testing specs', comments_counter: 0, likes_counter: 0)
+      post = Post.create(author_id: @user.id, title: "Title_#{index}", text: 'Testing specs', comments_counter: 0,
+                         likes_counter: 0)
       @posts << post
     end
     @comment = Comment.create(user: @user, post: @posts[1], text: 'Welcome World!')

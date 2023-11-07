@@ -5,11 +5,11 @@ RSpec.describe 'UsersShows', type: :system do
     driven_by(:rack_test)
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
     @post_1 = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
-                        likes_counter: 0)
+                          likes_counter: 0)
     @post_2 = Post.create(author_id: @user.id, title: 'Hello', text: 'Testing specs', comments_counter: 0,
-                        likes_counter: 0)
+                          likes_counter: 0)
     @post_3 = Post.create(author_id: @user.id, title: 'World', text: 'Testing specs', comments_counter: 0,
-                        likes_counter: 0)
+                          likes_counter: 0)
     visit user_path(id: @user.id)
   end
 
