@@ -10,8 +10,12 @@ RSpec.describe 'PostsShow', type: :system do
                          likes_counter: 0)
       @posts << post
     end
-    @comment = Comment.create(user: @user, post: @posts[1], text: 'Welcome World!')
-    @like = Like.create(user: @user, post: @post[1])
+    @comments = []
+    5.times do |index|
+      comment = Comment.create(user: @user, post: @posts[1], text: 'Welcome World!')
+      @comments << comment
+    end
+    @like = Like.create(user: @user, post: @posts[1])
     visit user_posts_path(user_id: @user.id)
   end
 
@@ -40,7 +44,7 @@ RSpec.describe 'PostsShow', type: :system do
   end
 
   it 'Should render how many comments a post has' do
-    expect(page).to have_content('Comments: 1')
+    expect(page).to have_content('Comments: 5')
   end
 
   it 'Should render how many likes a post has' do
@@ -52,7 +56,7 @@ RSpec.describe 'PostsShow', type: :system do
   end
 
   it 'Should redirect to a post show page' do
-    click_link('post-Specing')
+    click_link('post-Title_1')
     expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @posts[1].id))
   end
 end
