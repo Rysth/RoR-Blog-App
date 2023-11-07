@@ -4,10 +4,13 @@ RSpec.describe 'PostsShow', type: :system do
   before do
     driven_by(:rack_test)
     @user = User.create(name: 'Bravo', photo: 'test photo', bio: 'Specer', posts_counter: 0)
-    @post = Post.create(author_id: @user.id, title: 'Specing', text: 'Testing specs', comments_counter: 0,
-                        likes_counter: 0)
-    @comment = Comment.create(user: @user, post: @post, text: 'Welcome World!')
-    @like = Like.create(user: @user, post: @post)
+    @posts = []
+    5.times do |index|
+      post = Post.create(author_id: @user.id, title: "Title_#{index}", text: 'Testing specs', comments_counter: 0, likes_counter: 0)
+      @posts << post
+    end
+    @comment = Comment.create(user: @user, post: @posts[1], text: 'Welcome World!')
+    @like = Like.create(user: @user, post: @post[1])
     visit user_posts_path(user_id: @user.id)
   end
 
@@ -20,11 +23,11 @@ RSpec.describe 'PostsShow', type: :system do
   end
 
   it 'Should render number of posts' do
-    expect(page).to have_content('Number of posts: 1')
+    expect(page).to have_content('Number of posts: 5')
   end
 
   it 'Should render post title' do
-    expect(page).to have_content('Specing')
+    expect(page).to have_content('Title_1')
   end
 
   it 'Should render post text' do
@@ -32,7 +35,7 @@ RSpec.describe 'PostsShow', type: :system do
   end
 
   it 'Should render first comments on a post' do
-    expect(page).to have_content('Welcome World!')
+    expect(page).to have_selector('.comment', count: 5)
   end
 
   it 'Should render how many comments a post has' do
@@ -49,6 +52,6 @@ RSpec.describe 'PostsShow', type: :system do
 
   it 'Should redirect to a post show page' do
     click_link('post-Specing')
-    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post.id))
+    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @posts[1].id))
   end
 end
