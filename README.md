@@ -91,10 +91,16 @@ To run the project, execute the following command:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **John Palacios**
 
 - GitHub: [@rysthcraft](https://github.com/Rysth)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/john-palacios-rysthcraft)
+
+👤 **Soban Syeed**
+
+- GitHub: [@SnakyMz](https://github.com/SnakyMz)
+- Twitter: [@SobanSyeed](https://twitter.com/SobanSyeed)
+- LinkedIn: [Soban Syeed](https://www.linkedin.com/in/soban-syeed-82985b241/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
