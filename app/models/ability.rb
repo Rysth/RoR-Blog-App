@@ -9,7 +9,9 @@ class Ability
     can :manage, Post, author_id: user.id
     can :manage, Comment, user_id: user.id
     can :create, Like
-    return unless user.admin?  # additional permissions for administrators
-    can :manage, :all
+
+    # TODO : FIX
+    # return unless user.admin?  # additional permissions for administrators
+    # can :manage, :all
   end
 end

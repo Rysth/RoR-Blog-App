@@ -4,6 +4,9 @@
     <header class="flex justify-between">
       <h2 class="text-xl font-bold md:text-2xl">Post #<%= @post.id %>| <%= @post.title %> by <%= @user.name %></h2>
       <p class="text-xs md:text-right md:text-base ">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
+       <% if can? :destroy, @post %>
+        <button class="p-2 px-4 mt-5 text-center text-white bg-red-500 border md:hover:shadow-2xl md:hover:transition md:hover:scale-105">Delete Post</a>
+       <% end %>
     </header>
     <div class="text-justify">
       <p class="mt-3 text-sm md:text-base"><%= @post.text %></p>
