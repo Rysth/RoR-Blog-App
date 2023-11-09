@@ -75,4 +75,5 @@ end
 gem 'foreman', '~> 0.87.2'
 gem 'tailwindcss-rails', '~> 2.0'
 
+gem 'cancancan'
 gem 'devise', '~> 4.9'

@@ -4,16 +4,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 p-2 text-white bg-indigo-500 rounded-full" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="ml-3 text-base">RysthCraft | Blog Application</span>
+      <span class="ml-3 text-base"> Blog Application  
+        <% if user_signed_in?  %>
+          | <%= current_user.name %>
+        <% end %>
+         </span>
     </a>
     <nav class="flex flex-wrap items-center justify-center gap-3 text-base md:ml-auto">
       <a class="text-sm hover:text-gray-900" href="/">Home</a>
       <% if user_signed_in? %>
-      <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
-        <button type="submit" class="inline-flex items-center px-3 py-1 mt-4 text-base bg-red-300 border-0 rounded focus:outline-none md:hover:bg-gray-200 md:transition md:mt-0">
-          Logout
-        </button>
-      <% end %>
+        <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
+          <button type="submit" class="inline-flex items-center px-3 py-1 mt-4 text-base bg-red-300 border-0 rounded focus:outline-none md:hover:bg-gray-200 md:transition md:mt-0">
+            Logout
+          </button>
+        <% end %>
     <% else %>
       <div class="flex items-center gap-3">
         <a class="inline-flex items-center px-3 py-1 text-sm border-0 rounded focus:outline-none md:transition md:mt-0" href="<%= new_user_session_path %>">
