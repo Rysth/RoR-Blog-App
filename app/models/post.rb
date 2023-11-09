@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   after_save :update_counter
+  after_destroy :update_counter
 
   # Validation: Title must not be blank & Title must not exceed 250 characters.
   validates :title, presence: true, length: { maximum: 250 }
