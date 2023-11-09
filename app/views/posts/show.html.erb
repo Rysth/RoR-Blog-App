@@ -15,15 +15,18 @@
       </fieldset>
     <% end %>
     <% if can? :destroy, @post %>
-     <%= button_to 'Delete Post', user_post_path(@user, @post), :class => 'p-2 px-4 text-center text-white bg-red-500 border md:hover:shadow-2xl md:hover:transition md:hover:scale-105', method: :delete %>
+     <%= button_to 'Delete Post', user_post_path(@user, id: @post.id), :class => 'p-2 px-4 text-center text-white bg-red-500 border md:hover:shadow-2xl md:hover:transition md:hover:scale-105', method: :delete %>
     <% end %>
     </div>
   </article>
   <div class="border">
     <ul class="grid w-full p-0 list-none">
       <% @post.comments.includes(:user).each do |comment| %>
-        <li class="p-2 md:px-4 md:py-1">
+        <li class="flex items-center justify-between p-2 md:px-4 md:py-1">
           <p class="text-sm md:text-base"><span class="font-bold"><%= comment.user.name %>:</span> <%= comment.text %></p>
+          <% if can? :destroy, comment %>
+            <%= button_to 'Delete Comment', user_post_comment_path(@user, @post, id: comment.id), :class => 'p-1 px-2 text-center text-white bg-red-500 border md:hover:shadow-2xl md:hover:transition md:hover:scale-105 text-sm', method: :delete %>
+          <% end %>
         </li>
       <% end %>
     </ul>
