@@ -1,0 +1,44 @@
+<header class="mb-8">
+  <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl">Sign up</h2>
+</header>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'text-gray-600 grid gap-5' }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <fieldset class="grid gap-5 sm:grid-cols-3">
+    <div class="text-sm field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "p-2 text-sm border border-gray-300 w-full mt-1" %>
+    </div>
+    <div class="text-sm field">
+      <%= f.label "Photo (URL)" %><br />
+      <%= f.text_field :photo, autofocus: true, autocomplete: "photo", class: "p-2 text-sm border border-gray-300  w-full mt-1" %>
+    </div>
+    <div class="text-sm field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-2 text-sm border border-gray-300  w-full mt-1" %>
+    </div>
+  </fieldset>
+  <div class="text-sm field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "p-2 text-sm border border-gray-300 w-full resize-none" %>
+  </div>
+
+  <div class="text-sm field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "p-2 text-sm border border-gray-300  w-full mt-1" %>
+  </div>
+
+  <div class="text-sm field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "p-2 text-sm border border-gray-300  w-full mt-1" %>
+  </div>
+
+  <div class="mb-3 sm:flex sm:justify-end actions">
+    <%= f.submit "Sign up", class: 'w-full md:w-max p-2 border md:hover:scale-105 md:transition md:hover:shadow-2xl bg-green-300 px-4 cursor-pointer text-gray-900' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

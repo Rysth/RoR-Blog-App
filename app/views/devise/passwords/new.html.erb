@@ -1,0 +1,17 @@
+<header class="mb-8">
+  <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl">Forgot your password?</h2>
+</header>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'text-gray-600 grid gap-5' }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="text-sm field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-2 text-sm border border-gray-300  w-full mt-1" %>
+  </div>
+
+  <div class="mb-3 sm:flex sm:justify-end actions">
+    <%= f.submit "Send me reset password instructions", class: 'w-full md:w-max p-2 border md:hover:scale-105 md:transition md:hover:shadow-2xl bg-blue-300 px-4 cursor-pointer text-gray-900' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
