@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do # localhost:3000/api
+    resources :sessions
     resources :users, only: [:index] do # localhost:3000/api/users
       resources :posts, only: [:index] do # localhost:3000/api/users/:user_id/posts
         resources :comments, only: [:index, :create] #localhost:3000/api/users/:user_id/posts/:post_id/comments
