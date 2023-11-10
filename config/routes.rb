@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'api/sessions'
+  }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   root 'users#index'
@@ -12,11 +14,13 @@ Rails.application.routes.draw do
    end
   end
 
-  namespace :api, defaults: { format: :json } do
-    resources :users, only: [:index] do
-      resources :posts, only: [:index] do
-        resources :comments, only: [:index]
+  namespace :api, defaults: { format: :json } do # localhost:3000/api
+    resources :users, only: [:index] do # localhost:3000/api/users
+      resources :posts, only: [:index] do # localhost:3000/api/users/:user_id/posts
+        resources :comments, only: [:index, :create] #localhost:3000/api/users/:user_id/posts/:post_id/comments
       end
     end
   end
+
+
 end
