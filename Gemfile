@@ -77,3 +77,4 @@ gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'cancancan'
 gem 'devise', '~> 4.9'
+gem 'jwt'

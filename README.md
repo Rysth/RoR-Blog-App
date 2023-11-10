@@ -35,6 +35,7 @@
   <summary>Client</summary>
   <ul>
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://tailwindcss.com/">Tailwind</a></li>
   </ul>
 </details>
 
