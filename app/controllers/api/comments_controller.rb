@@ -8,10 +8,12 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    # render json: { user: current_user}
-    @comment = current_user.comments.build(comment_params)
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
     if @comment.save
        render json: @comment
+    else
+      render json: @comment.errors
     end
   end
 
@@ -26,6 +28,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text).merge(post_id: @post.id)
+    params.require(:comment).permit(:text)
   end
 end
